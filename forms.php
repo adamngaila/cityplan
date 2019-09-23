@@ -1,6 +1,5 @@
 <?php
-$conect = mysqli_connect("mwgmw3rs78pvwk4e.cbetxkdyhwsb.us-east-1.rds.amazonaws.com","	h7l9ehepp73f4lp6","qn81i2ospadx0b5v","jvkaflsb5i15egxa");
-
+$connect = mysqli_connect("mwgmw3rs78pvwk4e.cbetxkdyhwsb.us-east-1.rds.amazonaws.com","h7l9ehepp73f4lp6","qn81i2ospadx0b5v","jvkaflsb5i15egxa");
 
 $message = '';
 $query = "SELECT * FROM customer";
