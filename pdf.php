@@ -46,7 +46,7 @@ $pdf->SetTextColor(50,50,90);
 $pdf->Cell(190,8,'Taarifa za mmiliki wa kiwanja',1,1,'C',false);
 $pdf->ln(1);
 $qry = "SELECT * FROM customer WHERE customerID =  '$namba' ";
-$resul = mysqli_query($connect,$qry);
+$resul = mysqli_query($conect,$qry);
 
 while($row = mysqli_fetch_array($resul))
 {
@@ -101,7 +101,7 @@ $pdf->Cell(100,7,$row['utambuzina'],1,1);
 $pdf->ln(1);
 }
 $qry = "SELECT * FROM plot WHERE plotno = '$namba'";
-$resul = mysqli_query($connect,$qry);
+$resul = mysqli_query($conect,$qry);
 
 while($row = mysqli_fetch_array($resul))
 {
@@ -139,7 +139,7 @@ $pdf->Cell(50,7,$row['west'],1,1);
 $pdf->ln(1);
 
 $qry = "SELECT * FROM nyingine WHERE plotid = '$namba'";
-$resul = mysqli_query($connect,$qry);
+$resul = mysqli_query($conect,$qry);
 
 while($row = mysqli_fetch_array($resul))
 {
@@ -295,7 +295,7 @@ $pdf->ln(2);
 $pdf->SetFont('Times','',13);
 
 $qryi = "SELECT * FROM plot WHERE plotno = '$namba'  ";
-						$resulu = mysqli_query($connect,$qryi);
+						$resulu = mysqli_query($conect,$qryi);
  
 						   while($row = mysqli_fetch_array($resulu))
 						   {
@@ -310,7 +310,7 @@ $pdf->Cell(55,7,$row['plotcoordinatesy'],1,1);
 $pdf->ln(2);
                            }
 $qryi = "SELECT * FROM neighbor WHERE plotnu = '$namba'";
-$resulu = mysqli_query($connect,$qryi);
+$resulu = mysqli_query($conect,$qryi);
 
 while($row = mysqli_fetch_array($resulu))
 {
