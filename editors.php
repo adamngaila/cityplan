@@ -131,10 +131,10 @@ $results = mysqli_query($connect,$query);
 												</select> 
                         </div>
 				
-          
+				</form>
            <div class="panel-body" >
 		  <div style ='width:100%' >
-           <table cellpadding="10px" cellspacing="10px" border="10px" class="table table-striped table-bordered" id="example">
+           <table cellpadding="10px" cellspacing="10px" border="10px" width= 100% class="table table-striped table-bordered" id="example">
             
             <?php 
             $output = '';
@@ -143,7 +143,7 @@ $results = mysqli_query($connect,$query);
               $aina = $_POST['aina'];
               if($aina == 'claim owner information'){
               echo '
-                <thead style='width:80%'>
+                <thead>
               <tr>
                 <th>customer ID</th>
                 <th>First name</th>
@@ -199,7 +199,7 @@ $results = mysqli_query($connect,$query);
             while ($row = mysqli_fetch_array($result)) {
 
                $output = '
-               <tr  style='width:80%'>
+               <tr  style='>
                  <td>'.$row["customerID"].'</td>
                <td>'.$row["Fname"].'</td>              
                 <td>'.$row["midname"].'</td>
