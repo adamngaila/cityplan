@@ -130,8 +130,8 @@ $results = mysqli_query($connect,$query);
                         </div>
 				</form>
           
-           <div class="panel-body" >
-           <table cellpadding="10px" cellspacing="10px" border="10px" class="table table-striped table-bordered" id="example"style ='width:80%'>
+           <div class="panel-body" style ='width:80%' >
+           <table cellpadding="10px" cellspacing="10px" border="10px" class="table table-striped table-bordered" id="example">
             
             <?php 
             $output = '';
