@@ -131,10 +131,10 @@ $results = mysqli_query($connect,$query);
 												</select> 
                         </div>
 				
-				</form>
-           <div class="panel-body" >
-		  <div style ='width:100%' >
-           <table cellpadding="10px" cellspacing="10px" border="10px" width= 100% class="table table-striped table-bordered" id="example">
+				
+           <div class="panel-body" style = 'width:80%' >
+		<center>
+           <table cellpadding="10px" cellspacing="10px" border="10px" width = "100%" class="table table-striped table-bordered" id="example">
             
             <?php 
             $output = '';
@@ -199,7 +199,7 @@ $results = mysqli_query($connect,$query);
             while ($row = mysqli_fetch_array($result)) {
 
                $output = '
-               <tr  style='>
+               <tr  >
                  <td>'.$row["customerID"].'</td>
                <td>'.$row["Fname"].'</td>              
                 <td>'.$row["midname"].'</td>
@@ -357,6 +357,7 @@ $results = mysqli_query($connect,$query);
 
             </tbody>
           </table>
+			</centre>
           </div>
 				
 				</form>
