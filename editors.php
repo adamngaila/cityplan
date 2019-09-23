@@ -112,10 +112,13 @@ $results = mysqli_query($connect,$query);
   			<div class="content-box-large">
         <div class="panel-heading">
           <div class="panel-title">CityPlan Consultants</div>
+				</div>
+				<div>
        
         <form  action ="editors.php" method = "post" action ="">
 
            <input type="text"  name="id"  placeholder="search"/>
+	<br/>
            <input type="submit" name = "search" value ="SEARCH">
            <div>
            <select class="form-control" name ="aina" id="select-1"placeholder=" choose category of data">
