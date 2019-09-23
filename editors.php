@@ -125,6 +125,7 @@ $results = mysqli_query($connect,$query);
 													<option>others</option>
 												</select> 
                         </div>
+				</form>
           
            <div class="panel-body">
            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
@@ -352,7 +353,7 @@ $results = mysqli_query($connect,$query);
           </table>
           </div>
 
-        </form>
+ 
         
           
         </div>
