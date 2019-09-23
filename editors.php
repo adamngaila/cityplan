@@ -122,7 +122,7 @@ $results = mysqli_query($connect,$query);
 	
            <input type="submit" name = "search" value ="SEARCH">
 		</div>
-           <div style='width:20%'>
+           <div >
            <select class="form-control" name ="aina" id="select-1"placeholder=" choose category of data">
 													<option>claim owner information</option>
 													<option>plot details</option>
@@ -130,13 +130,13 @@ $results = mysqli_query($connect,$query);
 													<option>others</option>
 												</select> 
                         </div>
-			</center>		
+			
 				
            <div class="panel-body"  >
 		<center>
 			<div id ='table' style = 'width:80%'>
            <table cellpadding="10px" cellspacing="10px" border="10px" width = "100%" class="table table-striped table-bordered" id="example">
-            
+                <tbody width = 100>
             <?php 
             $output = '';
             if(isset($_POST['search'])){
@@ -156,7 +156,7 @@ $results = mysqli_query($connect,$query);
                 <th>Id type</th>
                 <th>Id number</th>
                 <th>Birth date</th>
-                <th>picture</th>
+               
                 <th> phone number</th>
                 
               </tr>
@@ -180,7 +180,7 @@ $results = mysqli_query($connect,$query);
                    <td>'.$row["idtype"].'</td>
                    <td>'.$row["idno"].'</td>
                    <td>'.$row["birthdate"].'</td>
-                   <td>'.$row["picture"].'</td>
+             
                    <td>'.$row["phone"].'</td>
                    
                  </tr>
@@ -211,7 +211,7 @@ $results = mysqli_query($connect,$query);
                 <td>'.$row["idtype"].'</td>
                 <td>'.$row["idno"].'</td>
                 <td>'.$row["birthdate"].'</td>
-                <td>'.$row["picture"].'</td>
+             
                 <td>'.$row["phone"].'</td>
                 
               </tr>
@@ -234,7 +234,7 @@ $results = mysqli_query($connect,$query);
            
           </tr>
         </thead>';
-
+  
           if($searchq == ''){
             $qr = "SELECT * FROM plot";
             $result = mysqli_query($connect,$qr);
@@ -354,11 +354,11 @@ $results = mysqli_query($connect,$query);
            print($output);
 
              ?>
-            <tbody>
+      
 
             </tbody>
           </table>
-			</centre>
+		
           </div>
 				
 				</form>
