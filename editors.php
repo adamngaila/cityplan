@@ -113,12 +113,12 @@ $results = mysqli_query($connect,$query);
         <div class="panel-heading">
           <div class="panel-title">CityPlan Consultants</div>
 				</div>
-				<div>
+				
        
         <form  action ="editors.php" method = "post" action ="">
 
            <input type="text"  name="id"  placeholder="search"/>
-	<br/>
+	
            <input type="submit" name = "search" value ="SEARCH">
            <div style='width:20%'>
            <select class="form-control" name ="aina" id="select-1"placeholder=" choose category of data">
@@ -130,8 +130,8 @@ $results = mysqli_query($connect,$query);
                         </div>
 				</form>
           
-           <div class="panel-body" style ='width:100%'>
-           <table cellpadding="10px" cellspacing="10px" border="10px" class="table table-striped table-bordered" id="example">
+           <div class="panel-body" >
+           <table cellpadding="10px" cellspacing="10px" border="10px" class="table table-striped table-bordered" id="example"style ='width:80%'>
             
             <?php 
             $output = '';
