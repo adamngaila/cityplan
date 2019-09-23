@@ -52,7 +52,7 @@ session_start();
 	           </div>
 			   <div class="col-md-5">
 	              <div class="row">
-				  <form   method = "post" >
+				 
 				  <div class="col-lg-12">
 	                  <div class="input-group form">
 						   <input type="text" name = "cp" class="form-control" placeholder="Search...">
@@ -63,11 +63,11 @@ session_start();
 						</div>
 
 				 </div>
-						 </form>
+						 
 				 </div>
 				 </div>
 			 
-	</form>   
+	
 	           <div class="col-md-2">
 	              <div class="navbar navbar-inverse" role="banner">
 	                  <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
@@ -75,7 +75,7 @@ session_start();
 	                      <li class="dropdown">
 	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Account <b class="caret"></b></a>
 	                        <ul class="dropdown-menu animated fadeInUp">
-	                          <li><a href="profile.html">Profile</a></li>
+	                          <li><a href="index.php">Profile</a></li>
 	                          <li><a href="index.php">Logout</a></li>
 	                        </ul>
 	                      </li>
