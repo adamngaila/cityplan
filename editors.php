@@ -352,9 +352,10 @@ $results = mysqli_query($connect,$query);
             </tbody>
           </table>
           </div>
-
+				
+				</form>
  
-        
+        </div>
           
         </div>
 		  
