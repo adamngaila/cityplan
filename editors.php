@@ -116,12 +116,13 @@ $results = mysqli_query($connect,$query);
 				
        
         <form  action ="editors.php" method = "post" action ="">
- <div style='width:20%'>
+		<div>
+
            <input type="text"  name="id"  placeholder="search"/>
 	
            <input type="submit" name = "search" value ="SEARCH">
-	 <br/>
-          
+		</div>
+           <div style='width:20%'>
            <select class="form-control" name ="aina" id="select-1"placeholder=" choose category of data">
 													<option>claim owner information</option>
 													<option>plot details</option>
@@ -129,7 +130,7 @@ $results = mysqli_query($connect,$query);
 													<option>others</option>
 												</select> 
                         </div>
-				</form>
+				
           
            <div class="panel-body" >
 		  <div style ='width:100%' >
@@ -142,7 +143,7 @@ $results = mysqli_query($connect,$query);
               $aina = $_POST['aina'];
               if($aina == 'claim owner information'){
               echo '
-                <thead>
+                <thead style='width:80%'>
               <tr>
                 <th>customer ID</th>
                 <th>First name</th>
@@ -198,7 +199,7 @@ $results = mysqli_query($connect,$query);
             while ($row = mysqli_fetch_array($result)) {
 
                $output = '
-               <tr>
+               <tr  style='width:80%'>
                  <td>'.$row["customerID"].'</td>
                <td>'.$row["Fname"].'</td>              
                 <td>'.$row["midname"].'</td>
