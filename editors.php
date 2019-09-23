@@ -122,6 +122,8 @@ $results = mysqli_query($connect,$query);
 	
            <input type="submit" name = "search" value ="SEARCH">
 		</div>
+			<br/>
+			<center>
            <div >
            <select class="form-control" name ="aina" id="select-1"placeholder=" choose category of data">
 													<option>claim owner information</option>
@@ -131,7 +133,7 @@ $results = mysqli_query($connect,$query);
 												</select> 
                         </div>
 			
-				
+			</center>	
            <div class="panel-body"  >
 		
 			<div id ='table' style = 'width:100%'>
