@@ -133,8 +133,8 @@ $results = mysqli_query($connect,$query);
 			
 				
            <div class="panel-body"  >
-		<center>
-			<div id ='table' style = 'width:80%'>
+		
+			<div id ='table' style = 'width:100%'>
            <table cellpadding="10px" cellspacing="5" border="5" width = "100%" class="table table-striped table-bordered" id="example">
                 <tbody width = 100% >
             <?php 
@@ -358,8 +358,7 @@ $results = mysqli_query($connect,$query);
 
             </tbody>
           </table>
-		
-          </div>
+		>
 				
 				</form>
  
