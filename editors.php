@@ -135,7 +135,7 @@ $results = mysqli_query($connect,$query);
            <div class="panel-body"  >
 		
 			<div id ='table' style = 'width:100%'>
-           <table cellpadding="10px" cellspacing="5" border="5" width = "100%" class="table table-striped table-bordered" id="example">
+           <table cellpadding="5" cellspacing="5" border="5" width = "100%" class="table table-striped table-bordered" id="example">
                 <tbody width = 100% >
             <?php 
             $output = '';
