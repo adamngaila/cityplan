@@ -52,7 +52,7 @@ session_start();
 	           </div>
 			   <div class="col-md-5">
 	              <div class="row">
-				 
+				 <form method ="post">
 				  <div class="col-lg-12">
 	                  <div class="input-group form">
 						   <input type="text" name = "cp" class="form-control" placeholder="Search...">
@@ -61,6 +61,7 @@ session_start();
 						</span>
 					
 						</div>
+					  </form>
 
 				 </div>
 						 
