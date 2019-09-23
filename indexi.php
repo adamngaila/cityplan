@@ -44,7 +44,7 @@ session_start();
 	                 <h1>
 	                 	<span>
 	                 	
-		  				<img width="120" height="25" src="images/logo.PNG"alt="">
+		  				<img width="100" height="25" src="images/logo.PNG"alt="">
 		  			
 	                 </span>
 	                 	<a href="indexi.php">CityPlan Consultants</a></h1>
