@@ -117,7 +117,7 @@ $results = mysqli_query($connect,$query);
        
         <form  action ="editors.php" method = "post" action ="">
 		<div>
-
+<center>
            <input type="text"  name="id"  placeholder="search"/>
 	
            <input type="submit" name = "search" value ="SEARCH">
@@ -130,10 +130,11 @@ $results = mysqli_query($connect,$query);
 													<option>others</option>
 												</select> 
                         </div>
+			</center>		
 				
-				
-           <div class="panel-body" style = 'width:80%' >
+           <div class="panel-body"  >
 		<center>
+			<div id ='table' style = 'width:80%'>
            <table cellpadding="10px" cellspacing="10px" border="10px" width = "100%" class="table table-striped table-bordered" id="example">
             
             <?php 
