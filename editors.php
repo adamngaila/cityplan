@@ -360,8 +360,7 @@ $results = mysqli_query($connect,$query);
 
             </tbody>
           </table>
-		>
-				
+		
 				</form>
  
         </div>
