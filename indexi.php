@@ -574,7 +574,7 @@ fidlayermaker.queryFeatures(query).then(result => result.features.forEach(t=>{
 	 
 	 ],(WebMap, MapView, Print, Search)=>{
 		 
-	   const map1 = new WebMap({"portalItem": {"id" : "16d587b61d8e430bb4582323c8918e40"} });
+	   const map1 = new WebMap({"portalItem": {"id" : "ec910fc0cd5f4ed4a26b846e246d9d19"} });
 	   
 	   const view = new MapView({container: "mapview", map: map1});
 	   //screenshot function
