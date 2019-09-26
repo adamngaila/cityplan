@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>CityPlan Consultants </title>
+	  
+	 <link rel="shortcut icon" href="images/favicon.ico" />
 	<meta charset="utf-8" />
 	
 	<meta
