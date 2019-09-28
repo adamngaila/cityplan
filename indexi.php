@@ -7,12 +7,10 @@ header('Cache-Control: no cache');
 session_cache_limiter('private_no_expire');
 session_start();
 
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html>
   <head>
     <title>CITYPLAN CONSULTANTS </title>
-	  <link rel="shortcut icon" href="images/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -53,23 +51,22 @@ session_start();
 	           </div>
 			   <div class="col-md-5">
 	              <div class="row">
-				 <form method ="post">
+				  <form   method = "post" >
 				  <div class="col-lg-12">
 	                  <div class="input-group form">
-						   <input type="text" name = "cp" class="form-control" placeholder="Search...">
+						   <input id='idtext' type="text" name = "cp" class="form-control" placeholder="Search...">
 						   <span class="input-group-btn">
-						 <button class="btn btn-primary" name = "srch"  >Search</button>
+						 <button class="btn btn-primary" name = "srch" id ='zoomsearch' >Search</button>
 						</span>
 					
 						</div>
-					  </form>
 
 				 </div>
-						 
+						 </form>
 				 </div>
 				 </div>
 			 
-	
+	</form>   
 	           <div class="col-md-2">
 	              <div class="navbar navbar-inverse" role="banner">
 	                  <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
@@ -77,7 +74,7 @@ session_start();
 	                      <li class="dropdown">
 	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Account <b class="caret"></b></a>
 	                        <ul class="dropdown-menu animated fadeInUp">
-	                          <li><a href="index.php">Profile</a></li>
+	                          <li><a href="profile.html">Profile</a></li>
 	                          <li><a href="index.php">Logout</a></li>
 	                        </ul>
 	                      </li>
@@ -349,7 +346,7 @@ session_start();
 				  			</div>
 				  			<div class="content-box-large box-with-header">
 								  <center>
-								  <button class="btn btn-primary" id="screenshotB"  >view map</button>
+								 
 							  <img  id = 'screenshotImage'   width = "200" height = "198">
 							  
 					</center>
@@ -476,7 +473,10 @@ session_start();
 						<div id = "toolbar" style = ' color:white; background:rgba(0,0,0,0.6)'>
 					<span>
 					<select id = 'fidlist'></select>
-					
+					<input id = "idtexti"  type = "text"  placeholder ="please enter the FID first">
+					<button class="btn btn-primary" id="screenshotBa" >Zoom map</button>
+					<button class="btn btn-primary" id="screenshotB" >Add to certificate</button>
+
 
 
 
@@ -494,6 +494,7 @@ session_start();
 						  </center>
 						  <script>
    var imgi;
+   let qrurl = "https://services5.arcgis.com/YefRmgg8xmG2PWEN/ArcGIS/rest/services/Nyamihenga_Dodoma/FeatureServer/0/query";
 
    function loadfidi()
    {
@@ -555,38 +556,172 @@ fidlayermaker.queryFeatures(query).then(result => result.features.forEach(t=>{
 
 
    }
-   function setev(){
-
-	const fidilist = getElementById("fidilist");
-	   fidilist.addEventListener("change",onTypechangw);
+   
 
 
+//ZOOMING AND SEARCHING
 
 
-   }
+
 	 require(["esri/WebMap",
 	 "esri/views/MapView",
 	 "esri/widgets/Print",
-	 
-			"esri/widgets/Search",
+	 "esri/request",
+	 "esri/Graphic",
+	
+	 	"esri/widgets/Search"
 
 		
 			
 	 
-	 ],(WebMap, MapView, Print, Search)=>{
+	 ],(WebMap, MapView, Print,Request,Graphic, Search)=>{
+		
+	
 		 
 	   const map1 = new WebMap({"portalItem": {"id" : "ec910fc0cd5f4ed4a26b846e246d9d19"} });
-	   
+	 
 	   const view = new MapView({container: "mapview", map: map1});
 	   //screenshot function
-	   const screenshotBtn = document.getElementById("screenshotBtn");
+	   const screenshotBa = document.getElementById("screenshotBa");
 	   const screenshotB = document.getElementById("screenshotB");
 	   const screenshoturl = document.getElementById("screenshoturl");
+	   const zoomsearch =  document.getElementById("zoomsearch");
+	   
+function drawGeometry (geometry, cleanup=true) {
+
+let g;
+let s;
+
+//it is a line
+if (geometry.paths != undefined) 
+{
+
+	g = {
+		type: "polyline",
+		paths: geometry.paths
+	}
+
+	s = {
+		type: "simple-line",
+		cap: "round",
+		color: [255,0,0,0.5],
+		width: 7,
+		style: "solid"
+	}
+
+} //it is a polygon
+else if (geometry.rings != undefined) 
+{
+
+
+	g = {
+		type: "polygon",
+		rings: geometry.rings
+	}
+
+	s = {
+		type: "simple-fill",
+		color: [255,0,0,0.5],
+		style: "backward-diagonal",
+		outline: {
+			width: 5,
+			color: [0,0,255,0.7],
+			style: "solid",
+			cap: "round"
+
+		}
+	}
+
+
+
+}
+else //else its a point
+{
+	g = {
+		type: "point",
+		longitude: geometry.x,
+		latitude: geometry.y
+	}
+
+	s = {
+		type: "simple-marker",
+		color: [255,0,0, 0.5],
+		size: 30
+	}
+
+
+}
+
+if (cleanup === true) view.graphics = [];
+
+let graphic = new Graphic({geometry: g, symbol: s})
+view.graphics.add(graphic);
+view.goTo(graphic);
+
+
+}
+
+	 
+	   screenshotBa.addEventListener("click",function(){
+	let rar = document.getElementById("idtexti");
+	let rari = rar.value;
+	let queryOptions = {
+                            responseType: "json",
+							query: {
+
+								f: "json",
+								where:"FID = "+rari+"",
+								//returnCountOnly: false,
+								returnGeometry: true,
+								outSR: 4326
+							
+
+							}
+                            
+                            };
+
+	
+
+	   Request(qrurl,queryOptions).then(function(response){
+		   
+		   //alert(JSON.stringify(response.data.features[0].geometry));
+		   //drawGeometry(response.data.features[0].geometry);
+		   drawGeometry(response.data.features[0].geometry);
+		   view.goTo(response.data.features[0].geometry.rings);
+	
+
+
+
+
+
+	   } ).catch (err => reject (alert ("ERR: " + err)));
+
+	 }	
+);
+
+
+
+
+
+
+
+
+	  
+
+
+
+
+	 
+
+
+
 	   var options = {
-  width: 200,
-  height: 200
+  width: 2048,
+  height: 2048
 };
 var ni ={format:"png"};
+
+
 
 		
 screenshotB.addEventListener("click", function() {
@@ -629,6 +764,8 @@ screenshoturl.value = screenshot.dataUrl;
 
 
 	   map1.when(()=>loadfid(map1.layers));
+	   
+ 
 	  // map1.when(()=>loadfidi());
 	  // map1.when(()=>setev());
 		
