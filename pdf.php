@@ -4,7 +4,7 @@ $conect = mysqli_connect("mwgmw3rs78pvwk4e.cbetxkdyhwsb.us-east-1.rds.amazonaws.
 
 
 $message = '';
-$pic = $_SESSION['src'];
+#$pic = $_SESSION['src'];
 
 
 $namba = $_SESSION["nam"];
@@ -108,7 +108,7 @@ while($row = mysqli_fetch_array($resul))
 $pdf->Cell(70,7,'Ukubwa wa kiwanja (mita za mraba)',0,0);
 $pdf->Cell(80,7,$row['plotsize'],1,1);
 $pdf->ln(1);
-$pdf->Image($pic,163,138,35,50,'JPEG');
+#$pdf->Image($pic,163,138,35,50,'JPEG');
 $pdf->ln(1);
 $pdf->Cell(25,7,'Latitudo',0,0);
 $pdf->Cell(40,7, $row['plotcoordinatesx'],1,0);
