@@ -16,7 +16,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body class="login-bg">
+   <body class="login-bg" style ="background-image:url('images/background.jpg');  background-size: cover;">
   	<div class="header">
 	     <div class="container">
 	        <div class="row">
