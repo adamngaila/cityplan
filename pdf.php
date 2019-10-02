@@ -4,11 +4,9 @@ $conect = mysqli_connect("mwgmw3rs78pvwk4e.cbetxkdyhwsb.us-east-1.rds.amazonaws.
 
 
 $message = '';
-#$pic = $_SESSION['src'];
 
-
-$namba = $_SESSION["nam"];
-
+#$$namba = $_SESSION["nam"];
+   $pic = $_SESSION['src'];
 
  
  require('libs/fpdf/fpdf.php');
@@ -46,7 +44,7 @@ $pdf->SetTextColor(50,50,90);
 $pdf->Cell(190,8,'Taarifa za mmiliki wa kiwanja',1,1,'C',false);
 $pdf->ln(1);
 $qry = "SELECT * FROM customer WHERE customerID =  '$namba' ";
-$resul = mysqli_query($conect,$qry);
+$resul = mysqli_query($connect,$qry);
 
 while($row = mysqli_fetch_array($resul))
 {
@@ -101,14 +99,14 @@ $pdf->Cell(100,7,$row['utambuzina'],1,1);
 $pdf->ln(1);
 }
 $qry = "SELECT * FROM plot WHERE plotno = '$namba'";
-$resul = mysqli_query($conect,$qry);
+$resul = mysqli_query($connect,$qry);
 
 while($row = mysqli_fetch_array($resul))
 {
 $pdf->Cell(70,7,'Ukubwa wa kiwanja (mita za mraba)',0,0);
 $pdf->Cell(80,7,$row['plotsize'],1,1);
 $pdf->ln(1);
-#$pdf->Image($pic,163,138,35,50,'JPEG');
+$pdf->Image($pic,163,138,35,50,'JPEG');
 $pdf->ln(1);
 $pdf->Cell(25,7,'Latitudo',0,0);
 $pdf->Cell(40,7, $row['plotcoordinatesx'],1,0);
@@ -139,7 +137,7 @@ $pdf->Cell(50,7,$row['west'],1,1);
 $pdf->ln(1);
 
 $qry = "SELECT * FROM nyingine WHERE plotid = '$namba'";
-$resul = mysqli_query($conect,$qry);
+$resul = mysqli_query($connect,$qry);
 
 while($row = mysqli_fetch_array($resul))
 {
@@ -295,7 +293,7 @@ $pdf->ln(2);
 $pdf->SetFont('Times','',13);
 
 $qryi = "SELECT * FROM plot WHERE plotno = '$namba'  ";
-						$resulu = mysqli_query($conect,$qryi);
+						$resulu = mysqli_query($connect,$qryi);
  
 						   while($row = mysqli_fetch_array($resulu))
 						   {
@@ -310,7 +308,7 @@ $pdf->Cell(55,7,$row['plotcoordinatesy'],1,1);
 $pdf->ln(2);
                            }
 $qryi = "SELECT * FROM neighbor WHERE plotnu = '$namba'";
-$resulu = mysqli_query($conect,$qryi);
+$resulu = mysqli_query($connect,$qryi);
 
 while($row = mysqli_fetch_array($resulu))
 {
