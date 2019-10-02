@@ -5,7 +5,7 @@ $conect = mysqli_connect("mwgmw3rs78pvwk4e.cbetxkdyhwsb.us-east-1.rds.amazonaws.
 
 $message = '';
 
-$namba = $_SESSION["nam"];
+$namba = $_SESSION['nam'];
    $pic = $_SESSION['src'];
 
  
@@ -135,7 +135,7 @@ $pdf->Cell(40,7,$row['east'],1,0);
 $pdf->Cell(30,7,'Jirani Magharibi',0,0,'C',false);
 $pdf->Cell(50,7,$row['west'],1,1);
 $pdf->ln(1);
-
+}
 $qry = "SELECT * FROM nyingine WHERE plotid = '$namba'";
 $resul = mysqli_query($connect,$qry);
 
@@ -191,26 +191,8 @@ $pdf->ln(1);
 $pdf->Image("images/logo.PNG",160,260,40,20);
 
 
-}
-
-
-
-
 
 $pdf->Output();
   
-
-   
-
-
-
-
-
-    
-  
-       
-
-     
-
 
 ?> 
