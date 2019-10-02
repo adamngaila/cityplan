@@ -598,7 +598,7 @@ body {
 /* Responsive CSS */
 
 /* Mobile phones */
-@media (max-width: 680px){
+@media (max-width: 480px){
 	  .container{
       width:100%;
    }
@@ -617,6 +617,32 @@ body {
    .navbar-toggle {
       margin-right:0px !important;
    }
+	.sidebar, content-box{
+      margin-bottom:30px;
+      width:100%;
+      float:none;
+      position:relative;
+   }
+	  .mainy{
+      margin-left: 0px;
+   }
+   .sidebar-dropdown{
+      display:block;
+      text-align:center;
+      margin:0 auto;
+      margin-bottom:10px;
+      border-bottom:1px dashed #eee;
+      padding-bottom:10px;
+   }
+   .sidebar-dropdown a, .sidebar-dropdown a:hover{
+      color:#fff;
+      background:#16cbe6;
+      display:block;
+      padding:6px 12px;
+      border-bottom:0px;
+      box-shadow:0px 0px 1px #0fa6bc;
+      border-radius:10px;
+   }  
 
 }
 
