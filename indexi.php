@@ -41,7 +41,7 @@ session_start();
 	<script src = 'https://js.arcgis.com/4.12/init.js'></script>
 	<link rel = "stylesheet" href = "https://js.arcgis.com/4.12/esri/css/main.css">
   </head>
-  <body style ="background-image:url('images/nzuri4.jpg');  background-size: cover;">
+  <body style ="background-image:url('images/nyemihanga.svg');  background-size: cover;">
   	<div class="header">
 	     <div class="container">
 	        <div class="row">
@@ -168,8 +168,8 @@ session_start();
 		  	<div class="row">
 		  		<div class="col-md-6">
 		  			<div class="content-box-large">
-		  				<div class="panel-heading">
-							<div class="panel-title"><h4>CLAIM OWNER DETAILS</h4></div>
+					  <div class="content-box-header">
+							<div class="panel-title"><h4 style = "color: blue;font-family: Lucida Fax">CLAIM OWNER DETAILS</h4></div>
 							
 							<div class="panel-options">
 								<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
@@ -214,24 +214,24 @@ session_start();
 							  <form action = "" method = "post">
 							<?php 
 							  $ui = $row['picture']; 
-								  echo '<img width="200" height="200"  style ="float: right;margin-left:10px;margin-bottom:5px; border: solid black 1px;padding: 2px" src="images/multimedia/'.$ui.'" class="img-responsive img-thumbnail"/>';
+								  echo '<img width="200" height="200"  style ="float: right;margin-right:10px;margin-bottom:5px;" src="images/multimedia/'.$ui.'" class="img-responsive img-thumbnail"/>';
 								  ?>
 								 	  
 								  <br/>
 		  			
 
 
-								  <p style = "font-family: Lucida Fax;font-size: 14px;"><?php if($row['gender']=='FEMALE'){ echo '<strong>FIRST NAME:</strong>	Ms.  '; echo $row['Fname'];} 
+								  <p style = "font-family: Lucida Fax;font-size: 12px;"><?php if($row['gender']=='FEMALE'){ echo '<strong>FIRST NAME:</strong>	Ms.  '; echo $row['Fname'];} 
 								  if($row['gender']=='MALE'){ echo '<strong>FIRST NAME:</strong> 	Mr. '; echo $row['Fname'];} if($row['gender']=='OTHERS'){ echo '<strong>FIRST NAME:</strong>	'; echo $row['Fname'];}?></p>
-								  <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong> MIDDLE NAME:</strong>	'; echo $row['Lname'];  ?></p>
-								  <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong>LAST NAME:</strong>	'; echo $row['midname'];  ?></p>
-								  <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong> GENDER :</strong>	'; echo $row['gender'];  ?></p>
-								  <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong>MARITAL STUTUS:</strong>	'; echo $row['maritalstutus'];  ?></p>
-								  <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong> CITIZENSHIP:</strong>	'; echo $row['citizenship'];  ?></p>
-								  <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong> ID TYPE:</strong>	'; echo $row['idtype'];  ?></p>
-								  <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong>ID NUMBER:</strong>	'; echo $row['idno'];  ?></p>
-								  <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong> PHONE NUMBER:</strong>	0'; echo $row['phone'];  ?></p>
-								  <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong> AGE:</strong>	'; echo $diff->format('%y');  ?></p>
+								  <p style = "font-family: Lucida Fax;font-size: 12px;"><?php echo '<strong> MIDDLE NAME:</strong>	'; echo $row['Lname'];  ?></p>
+								  <p style = "font-family: Lucida Fax;font-size: 12px;"><?php echo '<strong>LAST NAME:</strong>	'; echo $row['midname'];  ?></p>
+								  <p style = "font-family: Lucida Fax;font-size: 12px;"><?php echo '<strong> GENDER :</strong>	'; echo $row['gender'];  ?></p>
+								  <p style = "font-family: Lucida Fax;font-size: 12px;"><?php echo '<strong>MARITAL STUTUS:</strong>	'; echo $row['maritalstutus'];  ?></p>
+								  <p style = "font-family: Lucida Fax;font-size: 12px;"><?php echo '<strong> CITIZENSHIP:</strong>	'; echo $row['citizenship'];  ?></p>
+								  <p style = "font-family: Lucida Fax;font-size: 12px;"><?php echo '<strong> ID TYPE:</strong>	'; echo $row['idtype'];  ?></p>
+								  <p style = "font-family: Lucida Fax;font-size: 12px;"><?php echo '<strong>ID NUMBER:</strong>	'; echo $row['idno'];  ?></p>
+								  <p style = "font-family: Lucida Fax;font-size: 12px;"><?php echo '<strong> PHONE NUMBER:</strong>	0'; echo $row['phone'];  ?></p>
+								  <p style = "font-family: Lucida Fax;font-size: 12px;"><?php echo '<strong> AGE:</strong>	'; echo $diff->format('%y');  ?></p>
 							
 								  <br/>
 							
@@ -254,7 +254,7 @@ session_start();
 		  			<div class="row">
 		  				<div class="col-md-12">
 		  					<div class="content-box-header">
-			  					<div class="panel-title">Neighbouring information  </div>
+			  					<!--div class="panel-title">Neighbouring information  </div>
 								
 								<div class="panel-options">
 									<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
@@ -262,65 +262,7 @@ session_start();
 								</div>
 				  			</div>
 				  			<div class="content-box-large box-with-header">
-							  <?php
-						  
-						  if(isset($_POST['srch']))
-						  {
- 
-							 $ID = $_POST['cp'];
-							
-							 $qry = "SELECT * FROM customer WHERE customerID = '$ID'or Fname  =  '$ID' or midname = '$ID' or CONCAT(Fname,' ',midname) = '$ID'";
-								$resul = mysqli_query($connect,$qry);
-								
-								while($row = mysqli_fetch_array($resul))
-								{
-	
-								 
-								 
-									 $nama = $row['customerID'];
-								 
-								
-								if($ID == ''){
-									$qryi = "SELECT * FROM neighbor WHERE plotnu = '$ID' or plotnu =  '$nama' ";
-									$resulu = mysqli_query($connect,$qryi);
-									echo '';
-								}else{
 							 
-							 $qryi = "SELECT * FROM neighbor WHERE plotnu = '$ID'or plotnu =  '$nama'";
-						   $resulu = mysqli_query($connect,$qryi);
- 
-						   while($row = mysqli_fetch_array($resulu))
-						   {
-							   ?>
-							   <form action = "" method = "post">
-								  
-							  <p></p>
-							  <center><p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong>PLOT NUMBER:</strong>	'; echo $row['plotnu'];  ?></p></center>
-							   <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong>NORTH :</strong>	'; echo $row['north'];  ?></p>
-							   <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong> SOUTH :</strong>	'; echo $row['south'];  ?></p>
-							   <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong> WEST :</strong>	'; echo $row['west'];  ?></p>
-							   <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong> EAST:</strong>	'; echo $row['east'];  ?></p>
-							 
-								  
- 
- 
-							   </form>
- 
- 
- 
-							   <?php
- 
- 
- 
- 
-						   }
-						}
-						  }
-						}
- 
- 
- 
-						   ?>
 					  			
 								<br /><br />
 							</div>
@@ -328,8 +270,8 @@ session_start();
 		  			</div>
 		  			<div class="row">
 		  				<div class="col-md-12">
-		  					<div class="content-box-header">
-			  					<div class="panel-title"><h4>PLOT DETAILS</h4></div>
+		  					<div class="content-box-header"-->
+			  					<div class="panel-title"><h4 style = "color: blue;font-family: Lucida Fax">PLOT DETAILS</h4></div>
 								
 								<div class="panel-options">
 									<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
@@ -375,16 +317,17 @@ session_start();
 							   ?>
 							   <form action = "" method = "post">
 								  
-							  <center><p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong>PLOT NUMBER:</strong>	'; echo $row['plotno'];  ?></p></center>
+							  <center><p style = "font-family: Lucida Fax;font-size: 13px;"><?php echo '<strong>PLOT NUMBER:</strong>	'; echo $row['plotno'];  ?></p></center>
 							 
-							 <img  id = 'screenshotImage'   width = "200" height = "198" style ="float: left;margin-right:10px;margin-bottom:5px; border: solid black 1px;padding: 2px"><br/>
+							 <img  id = 'screenshotImage'   width = "245" height = "368" style ="float: right;margin-right:10px;margin-bottom:5px; border: solid black 1px;padding: 2px"><br/>
 							
-							 <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong>PLOT SIZE:</strong>	'; echo $row['plotsize']; echo' meter square';  ?></p>
-							   <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong> PLOT LOCATION:</strong>	'; echo $row['plotLocation'];  ?></p>
-							   <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong> PLOT X COORDINATES :</strong>	'; echo $row['plotcoordinatesx'];  ?></p>
-							   <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong>PLOT Y COORDINATES:</strong>	'; echo $row['plotcoordinatesy'];  ?></p>
-							   <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong> SITE NAME:</strong>	'; echo $row['site'];  ?></p>
-								  
+							 <p style = "font-family: Lucida Fax;font-size: 12px;"><?php echo '<strong>PLOT SIZE:</strong>	'; echo $row['plotsize']; echo' meter square';  ?></p>
+							   <p style = "font-family: Lucida Fax;font-size: 12px;"><?php echo '<strong> PLOT LOCATION:</strong>	'; echo $row['plotLocation'];  ?></p>
+							   <p style = "font-family: Lucida Fax;font-size: 12px;"><?php echo '<strong> PLOT X COORDINATES :</strong>	'; echo $row['plotcoordinatesx'];  ?></p>
+							   <p style = "font-family: Lucida Fax;font-size: 12px;"><?php echo '<strong>PLOT Y COORDINATES:</strong>	'; echo $row['plotcoordinatesy'];  ?></p>
+							   <p style = "font-family: Lucida Fax;font-size: 12px;"><?php echo '<strong> SITE NAME:</strong>	'; echo $row['site'];  ?></p>
+								  <p></p>
+								  <br/>
 								  
  
 							 
@@ -401,6 +344,65 @@ session_start();
 						   }
 						  }
 						}
+						}
+ 
+ 
+ 
+						   ?>
+						    <?php
+						  
+						  if(isset($_POST['srch']))
+						  {
+ 
+							 $ID = $_POST['cp'];
+							
+							 $qry = "SELECT * FROM customer WHERE customerID = '$ID'or Fname  =  '$ID' or midname = '$ID' or CONCAT(Fname,' ',midname) = '$ID'";
+								$resul = mysqli_query($connect,$qry);
+								
+								while($row = mysqli_fetch_array($resul))
+								{
+	
+								 
+								 
+									 $nama = $row['customerID'];
+								 
+								
+								if($ID == ''){
+									$qryi = "SELECT * FROM neighbor WHERE plotnu = '$ID' or plotnu =  '$nama' ";
+									$resulu = mysqli_query($connect,$qryi);
+									echo '';
+								}else{
+							 
+							 $qryi = "SELECT * FROM neighbor WHERE plotnu = '$ID'or plotnu =  '$nama'";
+						   $resulu = mysqli_query($connect,$qryi);
+ 
+						   while($row = mysqli_fetch_array($resulu))
+						   {
+							   ?>
+							   <form action = "" method = "post">
+								  
+							  <p></p>
+							  <h4 style = "font-family: Lucida Fax;font-size: 13px;"><?php echo '<strong>NEIGBOBOUR OF PLOT NUMBER:</strong>	'; echo $row['plotnu'];  ?></h4>
+							   <p style = "font-family: Lucida Fax;font-size: 12px;"><?php echo '<strong>NEIGHBOUR IN THE NORTH :</strong>	'; echo $row['north'];  ?></p>
+							   <p style = "font-family: Lucida Fax;font-size: 12px;"><?php echo '<strong> NEIGHBOUR IN THE SOUTH :</strong>	'; echo $row['south'];  ?></p>
+							   <p style = "font-family: Lucida Fax;font-size: 12px;"><?php echo '<strong> NEIGHBOUR IN THE WEST :</strong>	'; echo $row['west'];  ?></p>
+							   <p style = "font-family: Lucida Fax;font-size: 12px;"><?php echo '<strong> NEIGHBOUR IN THE EAST:</strong>	'; echo $row['east'];  ?></p>
+							 
+								  
+ 
+ 
+							   </form>
+ 
+ 
+ 
+							   <?php
+ 
+ 
+ 
+ 
+						   }
+						}
+						  }
 						}
  
  
