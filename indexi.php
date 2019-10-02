@@ -212,11 +212,11 @@ session_start();
 							$diff = date_diff(date_create($dob),date_create($today));
 							  ?>
 							  <form action = "" method = "post">
-							  <center><?php 
+							  <?php 
 							  $ui = $row['picture']; 
-								  echo '<img width="280" height="225" tyle ="float: right;margin-left:10px;margin-bottom:5px; border: solid black 1px;padding: 2px" src="images/multimedia/'.$ui.'" class="img-responsive img-thumbnail"/>';
+								  echo '<img width="200" height="200" tyle ="float: right;margin-left:10px;margin-bottom:5px; border: solid black 1px;padding: 2px" src="images/multimedia/'.$ui.'" class="img-responsive img-thumbnail"/>';
 								  ?>
-								 	  </center>
+								 	  
 								  <br/>
 		  			
 
