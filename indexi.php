@@ -202,7 +202,7 @@ session_start();
 						 }
 						 else{
 							 
-							$qry = "SELECT * FROM customer WHERE customerID = '$ID'or Fname = '$ID' or midname = '$ID'";
+							$qry = "SELECT * FROM customer WHERE customerID = '$ID'or Fname = '$ID' or midname = '$ID'or CONCAT(Fname,' ',midname) = '$ID'";
 							$resul = mysqli_query($connect,$qry);
 						  while($row = mysqli_fetch_array($resul))
 						  {
@@ -214,7 +214,7 @@ session_start();
 							  <form action = "" method = "post">
 							  <center><?php 
 							  $ui = $row['picture']; 
-								  echo '<img width="280" height="225" src="images/multimedia/'.$ui.'" class="img-responsive img-thumbnail"/>';
+								  echo '<img width="280" height="225" tyle ="float: right;margin-left:10px;margin-bottom:5px; border: solid black 1px;padding: 2px" src="images/multimedia/'.$ui.'" class="img-responsive img-thumbnail"/>';
 								  ?>
 								 	  </center>
 								  <br/>
@@ -271,7 +271,7 @@ session_start();
 						  {
  
 							 $ID = $_POST['cp'];
-							 $qry = "SELECT * FROM customer WHERE customerID = '$ID'or Fname  =  '$ID' or midname = '$ID'";
+							 $qry = "SELECT * FROM customer WHERE customerID = '$ID'or Fname  =  '$ID' or midname = '$ID'or CONCAT(Fname,' ',midname) = '$ID'";
 								$resul = mysqli_query($connect,$qry);
 								
 								while($row = mysqli_fetch_array($resul))
@@ -341,8 +341,7 @@ session_start();
 				  			<div class="content-box-large box-with-header">
 								  <center>
 								 
-							  <img  id = 'screenshotImage'   width = "200" height = "198">
-							  <input id = "idtexi"  type = "text"  >
+							 
 							  
 					</center>
 							  <?php
@@ -353,7 +352,7 @@ session_start();
 							 $ID = $_POST['cp'];
 							 
 							 
-							 $qry = "SELECT * FROM customer WHERE customerID = '$ID'or Fname  =  '$ID' or midname = '$ID'";
+							 $qry = "SELECT * FROM customer WHERE customerID = '$ID'or Fname  =  '$ID' or midname = '$ID'or CONCAT(Fname,' ',midname) = '$ID'";
 								$resul = mysqli_query($connect,$qry);
 								
 								while($row = mysqli_fetch_array($resul))
@@ -379,7 +378,9 @@ session_start();
 							   <form action = "" method = "post">
 								  
 							  <center><p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong>PLOT NUMBER:</strong>	'; echo $row['plotno'];  ?></p></center>
-							   <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong>PLOT SIZE:</strong>	'; echo $row['plotsize']; echo' meter square';  ?></p>
+							    <img  id = 'screenshotImage'   width = "200" height = "198" tyle ="float: left;margin-right:10px;margin-bottom:5px; border: solid black 1px;padding: 2px">
+							 
+								   <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong>PLOT SIZE:</strong>	'; echo $row['plotsize']; echo' meter square';  ?></p>
 							   <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong> PLOT LOCATION:</strong>	'; echo $row['plotLocation'];  ?></p>
 							   <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong> PLOT X COORDINATES :</strong>	'; echo $row['plotcoordinatesx'];  ?></p>
 							   <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong>PLOT Y COORDINATES:</strong>	'; echo $row['plotcoordinatesy'];  ?></p>
@@ -551,7 +552,7 @@ fidlayermaker.queryFeatures(query).then(result => result.features.forEach(t=>{
 	   //screenshot function
 	   const screenshotBa = document.getElementById("screenshotBa");
 	   const screenshotB = document.getElementById("screenshotB");
-	   const screenshoturl = document.getElementById("idtexi");
+	
 	   const zoomsearch =  document.getElementById("zoomsearch");
 	   var picurl;
 
@@ -654,7 +655,7 @@ view.takeScreenshot(options).then(function(screenshot) {
   imageElement.src = screenshot.dataUrl;
 let lindi =  imageElement.src;
 screenshoturl.value = screenshot.dataUrl;
-picurl = screenshoturl.value;
+
 
 			  console.log('Hello');
 			
