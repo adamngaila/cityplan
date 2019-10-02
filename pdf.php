@@ -10,24 +10,7 @@ $namba = $_SESSION['nam'];
 
  
  require('libs/fpdf/fpdf.php');
-class PDF extends fpdf{
-
-
-  function  setwatermark($txt1="",$txt2 = ""){
-
-    $this->_outerText1 =$txt1;
-    $this->_outerText2 = $txt2;
-
-
-    
-  }
-
-
-
-}
-
-
-		
+	
 $pdf = new FPDF('P','mm','A4');
 
 $pdf->AddPage();
@@ -81,6 +64,8 @@ $pdf->Cell(60,7,$row['idtype'],1,1);
 $pdf->ln(1);
 $pdf->Cell(55,7,'Namba ya kitambulisho',0,0);
 $pdf->Cell(60,7,$row['idno'],1,1);
+	
+$pdf->Output();
 }
 
 
@@ -114,6 +99,8 @@ $pdf->Cell(40,7, $row['plotcoordinatesx'],1,0);
 $pdf->Cell(25,7,'Longitudo',0,0,'C',false);
 $pdf->Cell(50,7, $row['plotcoordinatesy'],1,1);
 $pdf->ln(1);
+	
+$pdf->Output();
 }
 $qryi = "SELECT * FROM neighbor WHERE plotnu = '$namba'";
 $resulu = mysqli_query($connect,$qryi);
@@ -135,6 +122,8 @@ $pdf->Cell(40,7,$row['east'],1,0);
 $pdf->Cell(30,7,'Jirani Magharibi',0,0,'C',false);
 $pdf->Cell(50,7,$row['west'],1,1);
 $pdf->ln(1);
+	
+$pdf->Output();
 }
 $qry = "SELECT * FROM nyingine WHERE plotid = '$namba'";
 $resul = mysqli_query($connect,$qry);
@@ -170,6 +159,7 @@ $pdf->Cell(34,7,'Sahihi ya mwenyekiti',0,0,'C',FALSE);
 $pdf->Cell(45,7,'.............................',0,0);
 $pdf->Cell(30,7,'Muhuri',0,1,'C',FALSE);
 
+$pdf->Output();
 }
 $pdf->SetFont('Times','B',13);
 $pdf->ln(2);
