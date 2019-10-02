@@ -339,7 +339,7 @@ session_start();
 								</div>
 				  			</div>
 				  			<div class="content-box-large box-with-header">
-								  <center>
+								
 								 
 							 
 							  
@@ -378,7 +378,7 @@ session_start();
 							   <form action = "" method = "post">
 								  
 							  <center><p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong>PLOT NUMBER:</strong>	'; echo $row['plotno'];  ?></p></center>
-							    <img  id = 'screenshotImage'   width = "200" height = "198" tyle ="float: left;margin-right:10px;margin-bottom:5px; border: solid black 1px;padding: 2px">
+							    <img  id = 'screenshotImage'   width = "200" height = "198" tyle ="float: left;margin-right:10px;margin-bottom:5px; border: solid black 1px;padding: 2px"><br/>
 							 
 								   <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong>PLOT SIZE:</strong>	'; echo $row['plotsize']; echo' meter square';  ?></p>
 							   <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong> PLOT LOCATION:</strong>	'; echo $row['plotLocation'];  ?></p>
