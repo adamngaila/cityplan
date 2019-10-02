@@ -105,6 +105,7 @@ while($row = mysqli_fetch_array($resul))
 $pdf->Cell(70,7,'Ukubwa wa kiwanja (mita za mraba)',0,0);
 $pdf->Cell(80,7,$row['plotsize'],1,1);
 $pdf->ln(1);
+$pdf->Image("images/picha.PNG",163,138,35,50);
 $pdf->Image($pic,163,138,35,50,'JPEG');
 $pdf->ln(1);
 $pdf->Cell(25,7,'Latitudo',0,0);
