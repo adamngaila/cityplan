@@ -253,7 +253,8 @@ session_start();
 		  		<div class="col-md-6">
 		  			<div class="row">
 		  				<div class="col-md-12">
-		  					<div class="content-box-header">
+		  							  			<div class="content-box-large">
+					  <div class="content-box-header">
 			  					<!--div class="panel-title">Neighbouring information  </div>
 								
 								<div class="panel-options">
@@ -278,7 +279,7 @@ session_start();
 									<a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
 								</div>
 				  			</div>
-				  			<div class="content-box-large box-with-header">
+				  			
 								  <center>
 								 
 							 
