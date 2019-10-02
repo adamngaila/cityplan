@@ -41,7 +41,7 @@ session_start();
 	<script src = 'https://js.arcgis.com/4.12/init.js'></script>
 	<link rel = "stylesheet" href = "https://js.arcgis.com/4.12/esri/css/main.css">
   </head>
-  <body>
+  <body style ="background-image:url('images/nzuri4.jpg');  background-size: cover;">
   	<div class="header">
 	     <div class="container">
 	        <div class="row">
@@ -189,7 +189,7 @@ session_start();
 							 
 							$ID = $_POST['cp'];
 						
-							$_SESSION['nam']= $ID;
+							$_SESSION["nam"]= $ID;
 							
 						
 							
@@ -206,15 +206,15 @@ session_start();
 							$resul = mysqli_query($connect,$qry);
 						  while($row = mysqli_fetch_array($resul))
 						  {
-							
+							$_SESSION['s'] = $row["customerID"];
 							$dob = $row["birthdate"];
 							$today = date("Y-m-d");
 							$diff = date_diff(date_create($dob),date_create($today));
 							  ?>
 							  <form action = "" method = "post">
-							  <?php 
+							<?php 
 							  $ui = $row['picture']; 
-								  echo '<img width="200" height="200" tyle ="float: right;margin-left:10px;margin-bottom:5px; border: solid black 1px;padding: 2px" src="images/multimedia/'.$ui.'" class="img-responsive img-thumbnail"/>';
+								  echo '<img width="200" height="200"  style ="float: right;margin-left:10px;margin-bottom:5px; border: solid black 1px;padding: 2px" src="images/multimedia/'.$ui.'" class="img-responsive img-thumbnail"/>';
 								  ?>
 								 	  
 								  <br/>
@@ -232,8 +232,7 @@ session_start();
 								  <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong>ID NUMBER:</strong>	'; echo $row['idno'];  ?></p>
 								  <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong> PHONE NUMBER:</strong>	0'; echo $row['phone'];  ?></p>
 								  <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong> AGE:</strong>	'; echo $diff->format('%y');  ?></p>
-								  <p></p>
-								  <p></p>
+							
 								  <br/>
 							
 							  </form>
@@ -246,9 +245,7 @@ session_start();
 						}
 						
 						  ?>
-				  			<br />
 				  			
-							<br /><br />
 		  				</div>
 		  			</div>
 		  		</div>
@@ -271,7 +268,8 @@ session_start();
 						  {
  
 							 $ID = $_POST['cp'];
-							 $qry = "SELECT * FROM customer WHERE customerID = '$ID'or Fname  =  '$ID' or midname = '$ID'or CONCAT(Fname,' ',midname) = '$ID'";
+							
+							 $qry = "SELECT * FROM customer WHERE customerID = '$ID'or Fname  =  '$ID' or midname = '$ID' or CONCAT(Fname,' ',midname) = '$ID'";
 								$resul = mysqli_query($connect,$qry);
 								
 								while($row = mysqli_fetch_array($resul))
@@ -339,7 +337,7 @@ session_start();
 								</div>
 				  			</div>
 				  			<div class="content-box-large box-with-header">
-								
+								  <center>
 								 
 							 
 							  
@@ -378,16 +376,19 @@ session_start();
 							   <form action = "" method = "post">
 								  
 							  <center><p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong>PLOT NUMBER:</strong>	'; echo $row['plotno'];  ?></p></center>
-							    <img  id = 'screenshotImage'   width = "200" height = "198" tyle ="float: left;margin-right:10px;margin-bottom:5px; border: solid black 1px;padding: 2px"><br/>
 							 
-								   <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong>PLOT SIZE:</strong>	'; echo $row['plotsize']; echo' meter square';  ?></p>
+							 <img  id = 'screenshotImage'   width = "200" height = "198" style ="float: left;margin-right:10px;margin-bottom:5px; border: solid black 1px;padding: 2px"><br/>
+							
+							 <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong>PLOT SIZE:</strong>	'; echo $row['plotsize']; echo' meter square';  ?></p>
 							   <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong> PLOT LOCATION:</strong>	'; echo $row['plotLocation'];  ?></p>
 							   <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong> PLOT X COORDINATES :</strong>	'; echo $row['plotcoordinatesx'];  ?></p>
 							   <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong>PLOT Y COORDINATES:</strong>	'; echo $row['plotcoordinatesy'];  ?></p>
 							   <p style = "font-family: Lucida Fax;font-size: 14px;"><?php echo '<strong> SITE NAME:</strong>	'; echo $row['site'];  ?></p>
-								  <P></P>
-								  <P></P>
+								  
+								  
  
+							 
+							   
 							   </form>
  
  
@@ -552,7 +553,7 @@ fidlayermaker.queryFeatures(query).then(result => result.features.forEach(t=>{
 	   //screenshot function
 	   const screenshotBa = document.getElementById("screenshotBa");
 	   const screenshotB = document.getElementById("screenshotB");
-	
+	   const screenshoturl = document.getElementById("idtexi");
 	   const zoomsearch =  document.getElementById("zoomsearch");
 	   var picurl;
 
