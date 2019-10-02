@@ -1,6 +1,10 @@
 <?php
-
 session_start();
-$_SESSION['src'] = $_POST['src'];
+
+
+$id = $_POST['postname'];
+$_SESSION['src'] = $id;
+
+
 
 ?>
