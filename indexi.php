@@ -189,7 +189,7 @@ session_start();
 							 
 							$ID = $_POST['cp'];
 						
-							$_SESSION["nam"]= $ID;
+							$_SESSION['nam']= $ID;
 							
 						
 							
