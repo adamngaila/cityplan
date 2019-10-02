@@ -9,15 +9,22 @@ session_start();
 
 ?><!DOCTYPE html>
 <html>
-  <head>
-    <title>CITYPLAN CONSULTANTS </title>
-	  
-	 <link rel="shortcut icon" href="images/favicon.ico" />
+
+
+
+
+
+<link rel="shortcut icon" href="images/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
+	<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script-->
+
+    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+    <!--script src="https://code.jquery.com/jquery.js"></script-->
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src ="bootstrap/js/bootstrap.min.js" ></script>
+		<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
 	
-    <script src="https://code.jquery.com/jquery.js"></script>
 	<!--script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxy/1.6.1/scripts/jquery.ajaxy.js"></script-->
 	<script src ="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></script>
 	
@@ -33,7 +40,6 @@ session_start();
 	
 	<script src = 'https://js.arcgis.com/4.12/init.js'></script>
 	<link rel = "stylesheet" href = "https://js.arcgis.com/4.12/esri/css/main.css">
-
   </head>
   <body>
   	<div class="header">
@@ -109,12 +115,12 @@ session_start();
                          </a>
 					<ul>
 					
-					<form action = "pdf.php" method = "post">
+					<form action = "pdf.php" method = "post" id ='print' name ='print'>
 				  <div class="col-lg-12">
 
 	                  <div class="input-group form">
 				
-						 <button class="btn btn-primary" type="submit" name = "prt"  > Print </button>
+						 <button class="btn btn-primary"type="submit" name = "prt"  > Print </button>
 						</span>
 						
 						</div>
@@ -126,9 +132,13 @@ session_start();
 				 </div>
 						 
 						 <?php
-						   
 
+						
+						 
+						 
+						 
 						 ?>
+					
                         </ul>
                          <!-- Sub menu -->
                          <ul>
@@ -141,17 +151,17 @@ session_start();
 
 
 	<script>
-		  $(document).ready(() => {
+		  $(document).ready(function() {
 			  console.log('Hello');
+
+			
 		  });
 	</script>
 
 		  <!-- GENRERATING REPORT-->
 		  
 		  <?php
-		   
-		
-			
+		  
 		 ?>
 		  
 		  <div class="col-md-10">
@@ -171,36 +181,29 @@ session_start();
 		  				<div class="panel-body">
 						 
 						  <?php
-
     
   
 						
 						 if(isset($_POST['srch']))
 						 {
 							 
-
 							$ID = $_POST['cp'];
 						
-
 							$_SESSION["nam"]= $ID;
 							
 						
-
 							
 	
 						
 						 if($ID == ''){
 							$qry = "SELECT * FROM customer WHERE customerID = '$ID'or Fname  = '$ID' or midname = '$ID'";
 							$resul = mysqli_query($connect,$qry);
-
 							 echo '';
 						 }
-
 						 else{
 							 
 							$qry = "SELECT * FROM customer WHERE customerID = '$ID'or Fname = '$ID' or midname = '$ID'";
 							$resul = mysqli_query($connect,$qry);
-
 						  while($row = mysqli_fetch_array($resul))
 						  {
 							
@@ -212,7 +215,6 @@ session_start();
 							  <center><?php 
 							  $ui = $row['picture']; 
 								  echo '<img width="280" height="225" src="images/multimedia/'.$ui.'" class="img-responsive img-thumbnail"/>';
-
 								  ?>
 								 	  </center>
 								  <br/>
@@ -239,18 +241,10 @@ session_start();
 
 
 							  <?php
-
-
-
-
 						  }
 						 }
 						}
-
 						
-
-
-
 						  ?>
 				  			<br />
 				  			
@@ -286,9 +280,7 @@ session_start();
 								 
 								 
 									 $nama = $row['customerID'];
-
 								 
-
 								
 								if($ID == ''){
 									$qryi = "SELECT * FROM neighbor WHERE plotnu = '$ID' or plotnu =  '$nama' ";
@@ -350,6 +342,7 @@ session_start();
 								  <center>
 								 
 							  <img  id = 'screenshotImage'   width = "200" height = "198">
+							  <input id = "idtexi"  type = "text"  >
 							  
 					</center>
 							  <?php
@@ -369,16 +362,13 @@ session_start();
 								 
 								 
 									 $nama = $row['customerID'];
-
 								 
-
 								
 								if($ID == ''){
 									$qryi = "SELECT * FROM plot WHERE plotno = '$ID' or plotno =  '$nama' ";
 									$resulu = mysqli_query($connect,$qryi);
 									echo '';
 								}else{
-
 						  
 						$qryi = "SELECT * FROM plot WHERE plotno = '$ID' or plotno = '$nama' ";
 						$resulu = mysqli_query($connect,$qryi);
@@ -436,11 +426,9 @@ session_start();
 			
 
 			<!--<style>
-
 			svg
 			{
 				height: 50vw;
-
 			}
 			path{
 				fill: "#00FF00"; transition : .6s fill;
@@ -477,7 +465,7 @@ session_start();
 					<select id = 'fidlist'></select>
 					<input id = "idtexti"  type = "text"  placeholder ="please enter the FID first">
 					<button class="btn btn-primary" id="screenshotBa" >Zoom map</button>
-					<button class="btn btn-primary" id="screenshotB" >Add to certificate</button>
+					<button class="btn btn-primary" id="screenshotB"  >Add to certificate</button>
 
 
 
@@ -497,13 +485,11 @@ session_start();
 						  <script>
    var imgi;
    let qrurl = "https://services5.arcgis.com/YefRmgg8xmG2PWEN/ArcGIS/rest/services/Nyamihenga_Dodoma/FeatureServer/0/query";
-
    function loadfidi()
    {
 	const fidi = document.getElementById("fidilist");
 	const fidlayermaker = getalayer();
 	const query = fidlayermaker.createQuery();
-
 query.outFields = ["*"];
 query.returnGeometry = false;
 query.returnDistinctValues = true;
@@ -512,59 +498,39 @@ fidlayermaker.queryFeatures(query).then(result => result.features.forEach(t=>{
 	   o.textContent = t.attributes.FID;
 	   fidi.appendChild(o);
    
-
 	   })).catch(e=>alert("Error executing query."));
-
-
    }
    function loadfid(layers)
    {
 	const fid = document.getElementById("fidlist");
-
 	   layers.forEach(l=>{
-
 		
 	   let o = document.createElement("option");
 	   o.textContent = l.title;
 	   fid.appendChild(o);
    
-
 	   });
 	   
    }
-
    function getalayer()
    {
 	const fid = document.getElementById("fidlist");
 	const slectedIndex = fid.options.selectedIndex; 
 	return fid.options[selectedIndex].layer;
-
-
-
    }
-
    function onTypechange(e){
-
 	   const dd = e.target;
 	   const selectedIndex = dd.options.selectIndex;
 	   const fd = dd.options[selectedIndex].textContent;
 	   const fidlayermaker = getalayer();
 	   const query = fidlayermaker.createQuery();
-
 	   query.where = "FID='"+fd+"'";
 	  
 	   fidlayermaker.definitionExpression = query.where;
 	   fidlayermaker.queryFeature(query);
-
-
    }
    
-
-
 //ZOOMING AND SEARCHING
-
-
-
 	 require(["esri/WebMap",
 	 "esri/views/MapView",
 	 "esri/widgets/Print",
@@ -572,7 +538,6 @@ fidlayermaker.queryFeatures(query).then(result => result.features.forEach(t=>{
 	 "esri/Graphic",
 	
 	 	"esri/widgets/Search"
-
 		
 			
 	 
@@ -586,23 +551,22 @@ fidlayermaker.queryFeatures(query).then(result => result.features.forEach(t=>{
 	   //screenshot function
 	   const screenshotBa = document.getElementById("screenshotBa");
 	   const screenshotB = document.getElementById("screenshotB");
-	   const screenshoturl = document.getElementById("screenshoturl");
+	   const screenshoturl = document.getElementById("idtexi");
 	   const zoomsearch =  document.getElementById("zoomsearch");
+	   var picurl;
+
+	 
 	   
 function drawGeometry (geometry, cleanup=true) {
-
 let g;
 let s;
-
 //it is a line
 if (geometry.paths != undefined) 
 {
-
 	g = {
 		type: "polyline",
 		paths: geometry.paths
 	}
-
 	s = {
 		type: "simple-line",
 		cap: "round",
@@ -610,17 +574,13 @@ if (geometry.paths != undefined)
 		width: 7,
 		style: "solid"
 	}
-
 } //it is a polygon
 else if (geometry.rings != undefined) 
 {
-
-
 	g = {
 		type: "polygon",
 		rings: geometry.rings
 	}
-
 	s = {
 		type: "simple-fill",
 		color: [255,0,0,0.5],
@@ -630,12 +590,8 @@ else if (geometry.rings != undefined)
 			color: [0,0,255,0.7],
 			style: "solid",
 			cap: "round"
-
 		}
 	}
-
-
-
 }
 else //else its a point
 {
@@ -644,25 +600,17 @@ else //else its a point
 		longitude: geometry.x,
 		latitude: geometry.y
 	}
-
 	s = {
 		type: "simple-marker",
 		color: [255,0,0, 0.5],
 		size: 30
 	}
-
-
 }
-
 if (cleanup === true) view.graphics = [];
-
 let graphic = new Graphic({geometry: g, symbol: s})
 view.graphics.add(graphic);
 view.goTo(graphic);
-
-
 }
-
 	 
 	   screenshotBa.addEventListener("click",function(){
 	let rar = document.getElementById("idtexti");
@@ -670,20 +618,16 @@ view.goTo(graphic);
 	let queryOptions = {
                             responseType: "json",
 							query: {
-
 								f: "json",
 								where:"FID = "+rari+"",
 								//returnCountOnly: false,
 								returnGeometry: true,
 								outSR: 4326
 							
-
 							}
                             
                             };
-
 	
-
 	   Request(qrurl,queryOptions).then(function(response){
 		   
 		   //alert(JSON.stringify(response.data.features[0].geometry));
@@ -691,80 +635,57 @@ view.goTo(graphic);
 		   drawGeometry(response.data.features[0].geometry);
 		   view.goTo(response.data.features[0].geometry.rings);
 	
-
-
-
-
-
 	   } ).catch (err => reject (alert ("ERR: " + err)));
-
 	 }	
 );
-
-
-
-
-
-
-
-
 	  
-
-
-
-
 	 
-
-
-
 	   var options = {
   width: 2048,
   height: 2048
 };
 var ni ={format:"png"};
-
-
+var id;
 
 		
 screenshotB.addEventListener("click", function() {
-
 view.takeScreenshot(options).then(function(screenshot) {
 	var imageElement = document.getElementById("screenshotImage");
   imageElement.src = screenshot.dataUrl;
-
-
 let lindi =  imageElement.src;
 screenshoturl.value = screenshot.dataUrl;
+picurl = screenshoturl.value;
 
+			  console.log('Hello');
+			
+   $.post('tt.php',{postname:lindi},
+			function (data)
+			{
+				console.log(data);
 
-		$.ajax({
-			type: 'POST',
-			url: './tt.php',
-			data: {
-				src: lindi
-			},
-			success: (response) => {
+			});
+  
+		//	  $.ajax({
+	//		type: 'post',
+		//	url: 'indexi.php',
+		//	data:{
+//				surls: screenshot.dataUrl
+//},
+		//	dataType:'json',
+			//success: (response) => {
 				console.log(response);
-			}
-		});
-
-
+		//
+			//}
+		//});
+			  
 
 //var mapImg = domConstruct.toDom('<img src="'+rsltURL.url+'" border="0" style="width:740px;height:'+this.imgHeight+'px;"/>');
 //domConstruct.place(mapImg, dom.byId('mapImgDiv'), 'replace');
-});
-
-
-
-
-
 
 		});
-
+		
+	});
    
-
-
-
 	   map1.when(()=>loadfid(map1.layers));
 	   
  
@@ -794,6 +715,7 @@ screenshoturl.value = screenshot.dataUrl;
    
 	 
 	 </script>
+	
 </form>
 
 		  <br />
@@ -816,6 +738,8 @@ screenshoturl.value = screenshot.dataUrl;
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
+	
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
    
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
