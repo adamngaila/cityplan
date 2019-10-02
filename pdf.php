@@ -5,7 +5,7 @@ $conect = mysqli_connect("mwgmw3rs78pvwk4e.cbetxkdyhwsb.us-east-1.rds.amazonaws.
 
 $message = '';
 
-#$$namba = $_SESSION["nam"];
+$namba = $_SESSION["nam"];
    $pic = $_SESSION['src'];
 
  
