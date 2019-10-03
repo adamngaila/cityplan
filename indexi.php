@@ -556,7 +556,7 @@ fidlayermaker.queryFeatures(query).then(result => result.features.forEach(t=>{
 	   //screenshot function
 	   const screenshotBa = document.getElementById("screenshotBa");
 	   const screenshotB = document.getElementById("screenshotB");
-	   const screenshoturl = document.getElementById("idtexi");
+	  // const screenshoturl = document.getElementById("idtexi");
 	   const zoomsearch =  document.getElementById("zoomsearch");
 	   var picurl;
 
@@ -658,7 +658,7 @@ view.takeScreenshot(options).then(function(screenshot) {
 	var imageElement = document.getElementById("screenshotImage");
   imageElement.src = screenshot.dataUrl;
 let lindi =  imageElement.src;
-screenshoturl.value = screenshot.dataUrl;
+//screenshoturl.value = screenshot.dataUrl;
 
 
 			  console.log('Hello');
