@@ -159,10 +159,8 @@ $results = mysqli_query($connect,$query);
                 <th>Citizenship</th>
                 <th>Id type</th>
                 <th>Id number</th>
-                <th>Birth date</th>
-               
                 <th> phone number</th>
-                
+                <th> picture</th>
               </tr>
             </thead>';
 
@@ -171,6 +169,7 @@ $results = mysqli_query($connect,$query);
                 $result = mysqli_query($connect,$qr);
                 $count = mysqli_num_rows($result);
                 while ($row = mysqli_fetch_array($result)) {
+ $ui = $row['picture']; 
 
                 echo '
                   <tr>
@@ -183,9 +182,8 @@ $results = mysqli_query($connect,$query);
                    <td>'.$row["citizenship"].'</td>
                    <td>'.$row["idtype"].'</td>
                    <td>'.$row["idno"].'</td>
-                   <td>'.$row["birthdate"].'</td>
-             
-                   <td>'.$row["phone"].'</td>
+                    <td>'.$row["phone"].'</td>
+                    <td><img width="100" height="100" src="images/multimedia/'.$ui.'" class="img-responsive img-thumbnail"/></td>
                    
                  </tr>
    
@@ -205,19 +203,18 @@ $results = mysqli_query($connect,$query);
 
                $output = '
                <tr  >
-                 <td>'.$row["customerID"].'</td>
-               <td>'.$row["Fname"].'</td>              
-                <td>'.$row["midname"].'</td>
-                <td>'.$row["Lname"].'</td>
-                <td>'.$row["gender"].'</td>
-                <td>'.$row["maritalstutus"].'</td>            
-                <td>'.$row["citizenship"].'</td>
-                <td>'.$row["idtype"].'</td>
-                <td>'.$row["idno"].'</td>
-                <td>'.$row["birthdate"].'</td>
-             
-                <td>'.$row["phone"].'</td>
-                
+               <td>'.$row["customerID"].'</td>
+                  <td>'.$row["Fname"].'</td>              
+                   <td>'.$row["midname"].'</td>
+                   <td>'.$row["Lname"].'</td>
+                   <td>'.$row["gender"].'</td>
+                   <td>'.$row["maritalstutus"].'</td>            
+                   <td>'.$row["citizenship"].'</td>
+                   <td>'.$row["idtype"].'</td>
+                   <td>'.$row["idno"].'</td>
+                    <td>'.$row["phone"].'</td>
+                    <td><img width="100" height="100" src="images/multimedia/'.$ui.'" class="img-responsive img-thumbnail"/></td>
+                   
               </tr>
 
               ';
