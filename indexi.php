@@ -489,7 +489,8 @@ session_start();
 						  </center>
 						  <script>
    var imgi;
-   let qrurl = "https://services5.arcgis.com/YefRmgg8xmG2PWEN/ArcGIS/rest/services/Nyamihenga_Dodoma/FeatureServer/0/query";
+ 		let qrurl = "https://services5.arcgis.com/YefRmgg8xmG2PWEN/arcgis/rest/services/Nyemihanga_Dodoma/FeatureServer/0/query";
+
    function loadfidi()
    {
 	const fidi = document.getElementById("fidilist");
@@ -550,7 +551,7 @@ fidlayermaker.queryFeatures(query).then(result => result.features.forEach(t=>{
 		
 	
 		 
-	   const map1 = new WebMap({"portalItem": {"id" : "232cc64faafd402789a9a0495010d06e"} });
+	   const map1 = new WebMap({"portalItem": {"id" : "dc03b4b9ce04432d9c381a5c22d66474"} });
 	 
 	   const view = new MapView({container: "mapview", map: map1});
 	   //screenshot function
