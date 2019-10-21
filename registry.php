@@ -1,5 +1,10 @@
 <?php
-  $connect = mysqli_connect("localhost","root","","cityplan");
+
+$dbHost     = "mwgmw3rs78pvwk4e.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
+$dbUsername = "h7l9ehepp73f4lp6";
+$dbPassword = "qn81i2ospadx0b5v";
+$dbName     = "jvkaflsb5i15egxa";
+  $connect = mysqli_connect($dbhost,$dbUsername,$dbPassword,$dbName);
   $message = '';
   $query = "SELECT * FROM customer";
   $results = mysqli_query($connect,$query);
